@@ -3,10 +3,14 @@
 	export let post;
 </script>
 
-{#if post && post.url}
+{#if post}
 <div class="NewsCard">
 	<div class="NewsTitle">
-		<a class="NewsTitleUrl" href={post.url}>{post.title}</a>
+		{#if post.url != null}
+			<a class="NewsTitleUrl" href={post.url}>{post.title}</a>
+		{:else}
+			<a class="NewsTitleUrl" href={`${window.location.protocol}//${window.location.host}?post=${post.objectID}`}>{post.title}</a>
+		{/if}
 	</div>
 	<div class="NewsInfo">
 		<span>{`${post.points} ${(post.points > 1) ? "Upvotes" : "Upvote"}`} |</span>
@@ -43,5 +47,14 @@
 		text-align-last: left;
 		display: block;
 		font-size: 0.8rem;
+	}
+
+	@media (max-width: 470px) {
+		.NewsCard {
+			font-size: 0.85rem;
+		}
+		.NewsCard .NewsInfo {
+			font-size: 0.7rem;
+		}
 	}
 </style>
