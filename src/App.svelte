@@ -3,7 +3,6 @@
 	import NewsPage from './lib/NewsPage.svelte';
 	import UserPage from './lib/UserPage.svelte';
 	import PostPage from './lib/PostPage.svelte';
-
 	import { onMount } from 'svelte';
 
 	let QueryUsername;
