@@ -9,7 +9,7 @@
 
 	onMount(async () => {
 		try {
-			const response = await fetch(`http://hn.algolia.com/api/v1/items/${PostID}`);
+			const response = await fetch(`https://hn.algolia.com/api/v1/items/${PostID}`);
 			let data = await response.json()
 			post = data;
 			IsLoading = false;
